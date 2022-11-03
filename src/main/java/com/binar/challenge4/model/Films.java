@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Getter
 @Setter
@@ -19,4 +18,7 @@ public class Films {
     private Long filmCode;
     private String filmName;
     private String isShow;
+
+    @Transient
+    private boolean state;
 }
