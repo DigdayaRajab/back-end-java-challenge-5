@@ -1,0 +1,20 @@
+@startuml
+
+actor "User" as user
+node "Rest API"{
+    'API penerima request http
+    component "Controller" as controller
+    'bisnis logic
+    component "Service" as service
+    'jembatan antara code dan database
+    component "Repository" as repository
+}
+database "PostgreSQL" as database
+
+user <--> controller
+controller <--> service
+service <--> repository
+repository <--> database
+
+
+@enduml
