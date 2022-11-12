@@ -1,4 +1,5 @@
-# API Spec
+# API Spec Ticket Reservation
+
 
 ## User
 ### Create User
@@ -27,9 +28,7 @@ Request :
       "username": "String",
       "address": "String",
       "email": "String",
-      "password": "String",
-      "createdAt": "date",
-      "updateAt": "date"
+      "password": "String"
     }
 }
 ```
@@ -37,7 +36,7 @@ Request :
 ### Update User
 Request :
 - Method : PUT
-- EndPoint : `/api/users/{id_product}`
+- EndPoint : `/users/update`
 - Header :
   - Content-Type : application/json
   - Accept : application/json
@@ -61,9 +60,7 @@ Request :
     "username": "String",
     "address": "String",
     "email": "String",
-    "password": "String",
-    "createdAt": "date",
-    "updateAt": "date"
+    "password": "String"
   }
 }
 ```
@@ -71,7 +68,7 @@ Request :
 ### Delete User
 Request :
 - Method : DELETE
-- EndPoint : `/users/delete/{id_user}`
+- EndPoint : `/users/delete?{id}`
 - Header :
   - Accept : application/json
 - Response :
@@ -83,6 +80,35 @@ Request :
 ```
 
 
+### List User
+Request :
+- Method : GET
+- EndPoint : `/users/getAllUser`
+- Header :
+  - Accept : application/json
+- Response :
+```json
+{
+  "code" : "number",
+  "status" : "string",
+  "data" : [
+    {
+      "id_user": "Integer, unique",
+      "username": "String",
+      "address": "String",
+      "email": "String",
+      "password": "String"
+    },
+    {
+      "id_user": "Integer, unique",
+      "username": "String",
+      "address": "String",
+      "email": "String",
+      "password": "String"
+    }
+  ]
+}
+```
 
 
 ### Get User
@@ -101,22 +127,18 @@ Request :
     "username": "String",
     "address": "String",
     "email": "String",
-    "password": "String",
-    "createdAt": "date",
-    "updateAt": "date"
+    "password": "String"
   }
 }
 ```
 
-### List User
+
+### Get User by name
 Request :
 - Method : GET
-- EndPoint : `/users/getAllUser`
+- EndPoint : `/users/search?{username}`
 - Header :
   - Accept : application/json
-- Query Param :
-  - size : number,
-  - page : number
 - Response :
 ```json
 {
@@ -128,20 +150,72 @@ Request :
       "username": "String",
       "address": "String",
       "email": "String",
-      "password": "String",
-      "createdAt": "date",
-      "updateAt": "date"
+      "password": "String"
     },
     {
       "id_user": "Integer, unique",
       "username": "String",
       "address": "String",
       "email": "String",
-      "password": "String",
-      "createdAt": "date",
-      "updateAt": "date"
+      "password": "String"
     }
   ]
 }
 ```
 
+
+
+## Seats
+### Create Seats
+Request :
+- Method : POST
+- EndPoint : `/seats/add`
+- Header :
+  - Content-Type : application/json
+  - Accept : application/json
+- Body :
+```json
+{
+  "seatId": {
+    "studioName": "Character",
+    "seatNo": "Integer"
+  },
+  "status": "String"
+}
+```
+- Response :
+```json
+{
+  "seatId": {
+    "studioName": "Character",
+    "seatNo": "Integer"
+  },
+  "status": "String"
+}
+```
+
+### List Seats
+Request :
+- Method : GET
+- EndPoint : `/users/getAllSeats`
+- Header :
+  - Accept : application/json
+- Response :
+```json
+  [
+    {
+      "seatId": {
+        "studioName": "Character",
+        "seatNo": "Integer"
+      },
+      "status": "String"
+    },
+    {
+      "seatId": {
+        "studioName": "Character",
+        "seatNo": "Integer"
+      },
+      "status": "String"
+    }
+  ]
+```

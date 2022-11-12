@@ -1,9 +1,19 @@
 package com.binar.challenge5.entities;
 
-import javax.persistence.Embeddable;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.Column;import javax.persistence.Embeddable;
 import java.io.Serializable;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode
 @Embeddable
 public class SeatsId implements Serializable {
-    private Integer seatId;
+    private Character studioName;
+    private Integer seatNo;
 }

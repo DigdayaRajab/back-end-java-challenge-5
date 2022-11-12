@@ -1,19 +1,18 @@
 package com.binar.challenge5.entities;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
-@Getter
-@Setter
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
+@Table(name = "Seats")
 public class Seats {
     @EmbeddedId
     private SeatsId seatId;
-
-    @Column
-    private Character studioName;
+    private String status;
 
 }
 
