@@ -1,5 +1,4 @@
 @startuml
-
 actor "User" as user
 node "Rest API"{
     'API penerima request http
@@ -15,6 +14,20 @@ user <--> controller
 controller <--> service
 service <--> repository
 repository <--> database
-
-
 @enduml
+
+'          1. Menambahkan film baru (POST)
+'          2. Mengupdate nama film (PUT)
+'          3. Menghapus film (DELETE)
+'          4. Menampilkan film yang sedang tayang (GET)
+'          5. Menampilkan jadwal dari film tertentu (POST)
+'
+'  v        6. Menambahkan User (POST)
+'  v        7. Mengupdate user (PUT)
+'  v        8. Menghapus User (DELETE)
+
+
+'InvoiceService
+'table user		username
+'table seat		all
+'table film		name

@@ -78,15 +78,3 @@ public class UserController {
         }
     }
 }
-
-//
-//          1 Menambahkan film baru (POST)
-//          2. Mengupdate nama film (PUT)
-//        3. Menghapus film (DELETE)
-
-//        4. Menampilkan film yang sedang tayang (GET)
-//        5. Menampilkan jadwal dari film tertentu (POST)
-
-//        6. Menambahkan User (POST)
-//        7. Mengupdate user (PUT)
-//        8. Menghapus User (DELETE)
