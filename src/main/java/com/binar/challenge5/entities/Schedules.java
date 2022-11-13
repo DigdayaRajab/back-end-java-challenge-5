@@ -20,9 +20,6 @@ public class Schedules {
     private String endingHour;
     private String ticketPrice;
 
-    @Transient
-    private boolean state;
-
-    @ManyToOne
-    private Films film;
+//    @ManyToOne
+//    private Films film;
 }

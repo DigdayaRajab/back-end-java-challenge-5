@@ -1,13 +1,13 @@
 package com.binar.challenge5.controller;
 
-import com.binar.challenge5.model.CommonResponse;
-import com.binar.challenge5.model.CommonResponseGenerator;
-import com.binar.challenge5.model.request.UsersRequest;
-import com.binar.challenge5.service.Interface.UsersService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+        import com.binar.challenge5.model.CommonResponse;
+        import com.binar.challenge5.model.CommonResponseGenerator;
+        import com.binar.challenge5.model.request.UsersRequest;
+        import com.binar.challenge5.service.Interface.UsersService;
+        import org.springframework.beans.factory.annotation.Autowired;
+        import org.springframework.http.HttpStatus;
+        import org.springframework.http.ResponseEntity;
+        import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/users")

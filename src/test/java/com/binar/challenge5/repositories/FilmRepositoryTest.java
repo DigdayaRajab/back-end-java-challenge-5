@@ -17,29 +17,28 @@ class FilmRepositoryTest {
     void tesAddData() {
         Films film = new Films();
 
-        film.setFilmCode(1011L);
+        film.setFilmCode("code");
         film.setFilmName("Jumanji");
         film.setIsShow("true");
-        film.setState(true);
 
         filmRepository.save(film);
     }
 
     @Test
     void tesGetUserById() {
-        List<Films> filmsList = filmRepository.findFilmsById(1);
-        filmsList.forEach(flm ->
-                System.out.println(flm.getFilmName())
-        );
+//        List<Films> filmsList = filmRepository.findFilmsById(1);
+//        filmsList.forEach(flm ->
+//                System.out.println(flm.getFilmName())
+//        );
     }
 
-    @Test
-    void tesGetUserByName() {
-        List<Films> filmsList = filmRepository.findFilmsByName("Jumanji");
-        filmsList.forEach(flm ->
-                System.out.println(flm.getIdFilm())
-        );
-    }
+//    @Test
+//    void tesGetUserByName() {
+//        List<Films> filmsList = filmRepository.findFilmsByName("Jumanji");
+//        filmsList.forEach(flm ->
+//                System.out.println(flm.getIdFilm())
+//        );
+//    }
 
     @Test
     void testGetAllFilms() {
