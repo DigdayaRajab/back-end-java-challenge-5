@@ -1,11 +1,12 @@
 package com.binar.challenge5.service.Interface;
 
+import com.binar.challenge5.model.request.InvoiceRequest;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import javax.servlet.http.HttpServletResponse;
+
+@Service
 public interface InvoiceService {
-    void generateInvoice();
-//    facade antara FilmService dan UserService
-        // digunakan untuk men-generate file PDF
-        // PDF ini berisi user sebagai pembeli, nomor kursi yang dipesan,
-        //nama film dan jadwal film.
-
-
+    void generateInvoice(HttpServletResponse response, @RequestBody InvoiceRequest invoiceRequest) throws Exception;
 }

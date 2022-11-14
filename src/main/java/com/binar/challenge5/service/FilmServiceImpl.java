@@ -1,7 +1,6 @@
 package com.binar.challenge5.service;
 
 import com.binar.challenge5.entities.Films;
-import com.binar.challenge5.entities.Users;
 import com.binar.challenge5.model.request.FilmRequest;
 import com.binar.challenge5.model.response.FilmScheduleResponse;
 import com.binar.challenge5.repositories.FilmRepository;
@@ -69,5 +68,15 @@ public class FilmServiceImpl implements FilmService {
         }
         return filmResponse;
     }
+
+    @Override
+    public Films findFilmsById(Integer idFilm) throws Exception{
+        Films filmResponse =  filmRepository.findFilmsById(idFilm);
+        if(filmResponse == null) {
+            throw new Exception("Data tidak ditemukan");
+        }
+        return filmResponse;
+    }
+
 
 }

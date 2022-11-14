@@ -3,9 +3,11 @@ package com.binar.challenge5.service.Interface;
 import com.binar.challenge5.entities.Films;
 import com.binar.challenge5.model.request.FilmRequest;
 import com.binar.challenge5.model.response.FilmScheduleResponse;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public interface FilmService {
 
     void newFilm(Films film);
@@ -22,4 +24,6 @@ public interface FilmService {
     List<Films> findFilmsShow() throws Exception;
 
     List<FilmScheduleResponse> findFilmsScheduleByName(String filmName) throws Exception;
+
+    Films findFilmsById(Integer idFilm) throws Exception;
 }

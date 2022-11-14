@@ -5,7 +5,6 @@ import com.binar.challenge5.model.CommonResponse;
 import com.binar.challenge5.model.CommonResponseGenerator;
 import com.binar.challenge5.model.request.FilmRequest;
 import com.binar.challenge5.model.response.FilmScheduleResponse;
-import com.binar.challenge5.repositories.SchedulesRepository;
 import com.binar.challenge5.service.Interface.FilmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -85,7 +84,6 @@ public class FilmController {
             return commonResponseGenerator.successResponse(new ResponseEntity(response, HttpStatus.OK).getBody(), "Success Add Data");
         } catch (Exception e) {
             return commonResponseGenerator.failedResponse(new ResponseEntity("", HttpStatus.NO_CONTENT), e.getMessage());
-
         }
     }
 
