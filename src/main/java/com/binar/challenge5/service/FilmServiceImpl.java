@@ -37,6 +37,12 @@ public class FilmServiceImpl implements FilmService {
         if(film == null) {
             throw new Exception("Data tidak ditemukan");
         }
+        film.setFilmCode(filmRequest.getFilms().getFilmCode());
+        film.setFilmName(filmRequest.getFilms().getFilmName());
+        film.setIsShow(filmRequest.getFilms().getIsShow());
+        film.setSchedules(filmRequest.getFilms().getSchedules());
+
+//        System.out.println(filmRequest.getFilms().getSchedules().);
 
         return filmRepository.save(film);
     }
