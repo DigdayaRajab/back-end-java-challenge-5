@@ -3,23 +3,22 @@ package com.binar.challenge5.model.request;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.lang.NonNull;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class InvoiceRequest {
+    @NonNull
     private Integer idUser;
-//    private String username;
-//    private String email;
-
+    @NonNull
     private Integer idFilm;
-    //    private String filmName;
-//
+    @NonNull
     private String showDate;
+    @NonNull
     private String startingHour;
-//    private String ticketPrice;
-//
+    @NonNull
     private Character studioName;
+    @NonNull
     private Integer seatNo;
-//    private SeatsId seatId;
 }

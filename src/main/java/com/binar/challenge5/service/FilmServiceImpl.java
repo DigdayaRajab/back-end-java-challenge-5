@@ -1,7 +1,7 @@
 package com.binar.challenge5.service;
 
 import com.binar.challenge5.entities.Films;
-import com.binar.challenge5.model.request.FilmRequest;
+import com.binar.challenge5.model.request.FilmUpdateRequest;
 import com.binar.challenge5.model.response.FilmScheduleResponse;
 import com.binar.challenge5.repositories.FilmRepository;
 import com.binar.challenge5.service.Interface.FilmService;
@@ -17,12 +17,12 @@ public class FilmServiceImpl implements FilmService {
     FilmRepository filmRepository;
 
     @Override
-    public void newFilm(Films film){
+    public void newFilm(Films film) {
         filmRepository.save(film);
     }
 
     @Override
-    public void deleteFilm(Films film){
+    public void deleteFilm(Films film) {
         filmRepository.deleteById(film.getIdFilm());
     }
 
@@ -32,19 +32,23 @@ public class FilmServiceImpl implements FilmService {
     }
 
     @Override
-    public Films updateFilm(FilmRequest filmRequest) throws Exception {
-        Films film = filmRepository.findFilmsById(filmRequest.getFilms().getIdFilm());
-        if(film == null) {
+    public FilmUpdateRequest updateFilm(FilmUpdateRequest filmUpdateRequest) throws Exception {
+
+        Films film = filmRepository.findFilmsById(filmUpdateRequest.getIdFilm());
+        if (film == null) {
             throw new Exception("Data tidak ditemukan");
         }
-        film.setFilmCode(filmRequest.getFilms().getFilmCode());
-        film.setFilmName(filmRequest.getFilms().getFilmName());
-        film.setIsShow(filmRequest.getFilms().getIsShow());
-        film.setSchedules(filmRequest.getFilms().getSchedules());
 
-//        System.out.println(filmRequest.getFilms().getSchedules().);
-
-        return filmRepository.save(film);
+        try {
+            return filmRepository.update(
+                    filmUpdateRequest.getFilmCode(),
+                    filmUpdateRequest.getFilmName(),
+                    filmUpdateRequest.getIsShow(),
+                    filmUpdateRequest.getIdFilm());
+        } catch (Exception e) {
+            e.getMessage();
+        }
+        return filmUpdateRequest;
     }
 
     @Override
@@ -58,27 +62,27 @@ public class FilmServiceImpl implements FilmService {
     }
 
     @Override
-    public List<Films> findFilmsShow() throws Exception{
+    public List<Films> findFilmsShow() throws Exception {
         List<Films> filmResponse = filmRepository.findFilmsShow();
-        if(filmResponse == null) {
+        if (filmResponse == null) {
             throw new Exception("Data tidak ditemukan");
         }
         return filmResponse;
     }
 
     @Override
-    public List<FilmScheduleResponse> findFilmsScheduleByName(String filmName) throws Exception{
-        List<FilmScheduleResponse> filmResponse =  filmRepository.findFilmsScheduleByName(filmName);
-        if(filmResponse == null) {
+    public List<FilmScheduleResponse> findFilmsScheduleByName(String filmName) throws Exception {
+        List<FilmScheduleResponse> filmResponse = filmRepository.findFilmsScheduleByName(filmName);
+        if (filmResponse == null) {
             throw new Exception("Data tidak ditemukan");
         }
         return filmResponse;
     }
 
     @Override
-    public Films findFilmsById(Integer idFilm) throws Exception{
-        Films filmResponse =  filmRepository.findFilmsById(idFilm);
-        if(filmResponse == null) {
+    public Films findFilmsById(Integer idFilm) throws Exception {
+        Films filmResponse = filmRepository.findFilmsById(idFilm);
+        if (filmResponse == null) {
             throw new Exception("Data tidak ditemukan");
         }
         return filmResponse;

@@ -3,6 +3,7 @@
 - User
 - Film
 - Seat
+- Invoice
 
 ## User
 
@@ -194,6 +195,25 @@ Request :
 }
 ```
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Film
 
 ### Create Film
@@ -209,9 +229,29 @@ Request :
 
 ```json
 {
-  "filmCode": "Long",
-  "filmName": "String",
-  "isShow": "String"
+  "films":{
+    "filmCode": "String",
+    "filmName": "String",
+    "isShow": "Show",
+    "schedules": [
+      {
+        "showDate": "2022-11-28",
+        "startingHour": "12.00",
+        "endingHour": "13.00",
+        "ticketPrice": "50000"
+      },{
+        "showDate": "2022-11-28",
+        "startingHour": "16.00",
+        "endingHour": "17.00",
+        "ticketPrice": "60000"
+      },{
+        "showDate": "2022-11-28",
+        "startingHour": "20.00",
+        "endingHour": "21.00",
+        "ticketPrice": "40000"
+      }
+    ]
+  }
 }
 ```
 
@@ -219,13 +259,36 @@ Request :
 
 ```json
 {
-  "code": "number",
-  "status": "string",
+  "status": "number",
+  "message": "string",
   "data": {
     "idFilm": "Integer, unique",
-    "filmCode": "Long",
+    "filmCode": "String",
     "filmName": "String",
-    "isShow": "String"
+    "isShow": "String",
+    "schedules": [
+      {
+        "idSchedule": 69,
+        "showDate": "2022-11-28",
+        "startingHour": "12.00",
+        "endingHour": "13.00",
+        "ticketPrice": "50000"
+      },
+      {
+        "idSchedule": 70,
+        "showDate": "2022-11-28",
+        "startingHour": "16.00",
+        "endingHour": "17.00",
+        "ticketPrice": "60000"
+      },
+      {
+        "idSchedule": 71,
+        "showDate": "2022-11-28",
+        "startingHour": "20.00",
+        "endingHour": "21.00",
+        "ticketPrice": "40000"
+      }
+    ]
   }
 }
 ```
@@ -240,11 +303,10 @@ Request :
     - Content-Type : application/json
     - Accept : application/json
 - Body :
-
 ```json
 {
   "idFilm": "Integer, unique",
-  "filmCode": "Long",
+  "filmCode": "String",
   "filmName": "String",
   "isShow": "String"
 }
@@ -258,7 +320,7 @@ Request :
   "status": "string",
   "data": {
     "idFilm": "Integer, unique",
-    "filmCode": "Long",
+    "filmCode": "String",
     "filmName": "String",
     "isShow": "String"
   }
@@ -325,14 +387,26 @@ Request :
 
 ```json
 {
-  "code": "number",
-  "status": "string",
-  "data": {
-    "idFilm": "Integer, unique",
-    "filmCode": "Long",
-    "filmName": "String",
-    "isShow": "String"
-  }
+  "status": "number",
+  "message": "string",
+  "data": [
+    {
+      "filmName": "string",
+      "isShow": "string",
+      "showDate": "2022-11-25",
+      "startingHour": "12.00",
+      "endingHour": "13.00",
+      "ticketPrice": "50000"
+    },
+    {
+      "filmName": "string",
+      "isShow": "string",
+      "showDate": "2022-11-25",
+      "startingHour": "16.00",
+      "endingHour": "17.00",
+      "ticketPrice": "60000"
+    }
+  ]
 }
 ```
 
@@ -356,20 +430,24 @@ Request :
 
 ```json
 {
-  "code": "number",
-  "status": "string",
+  "status": "number",
+  "message": "string",
   "data": [
     {
-      "idFilm": "Integer, unique",
-      "filmCode": "Long",
-      "filmName": "String",
-      "isShow": "String"
+      "filmName": "string",
+      "isShow": "string",
+      "showDate": "2022-11-25",
+      "startingHour": "12.00",
+      "endingHour": "13.00",
+      "ticketPrice": "50000"
     },
     {
-      "idFilm": "Integer, unique",
-      "filmCode": "Long",
-      "filmName": "String",
-      "isShow": "String"
+      "filmName": "string",
+      "isShow": "string",
+      "showDate": "2022-11-25",
+      "startingHour": "16.00",
+      "endingHour": "17.00",
+      "ticketPrice": "60000"
     }
   ]
 }
@@ -387,20 +465,24 @@ Request :
 
 ```json
 {
-  "code": "number",
-  "status": "string",
+  "status": "number",
+  "message": "string",
   "data": [
     {
-      "idFilm": "Integer, unique",
-      "filmCode": "Long",
-      "filmName": "String",
-      "isShow": "String"
+      "filmName": "string",
+      "isShow": "string",
+      "showDate": "2022-11-25",
+      "startingHour": "12.00",
+      "endingHour": "13.00",
+      "ticketPrice": "50000"
     },
     {
-      "idFilm": "Integer, unique",
-      "filmCode": "Long",
-      "filmName": "String",
-      "isShow": "String"
+      "filmName": "string",
+      "isShow": "string",
+      "showDate": "2022-11-25",
+      "startingHour": "16.00",
+      "endingHour": "17.00",
+      "ticketPrice": "60000"
     }
   ]
 }
@@ -437,7 +519,6 @@ Request :
       "Schedules": {
         "showDate": "String",
         "startingHour": "String",
-        "ticketPrice": "String",
         "ticketPrice": "String"
       }
     },
@@ -449,13 +530,18 @@ Request :
       "Schedules": {
         "showDate": "String",
         "startingHour": "String",
-        "ticketPrice": "String",
         "ticketPrice": "String"
       }
     }
   ]
 }
 ```
+
+
+
+
+
+
 
 ## Seats
 
@@ -484,11 +570,52 @@ Request :
 
 ```json
 {
+  "code": "number",
+  "status": "string",
+  "data": {
+    "seatId": {
+      "studioName": "Character",
+      "seatNo": "Integer"
+    },
+    "status": "String"
+  }
+}
+```
+
+### Update Seats
+
+Request :
+
+- Method : PUT
+- EndPoint : `/seats/update`
+- Header :
+  - Content-Type : application/json
+  - Accept : application/json
+- Body :
+
+```json
+{
   "seatId": {
     "studioName": "Character",
     "seatNo": "Integer"
   },
   "status": "String"
+}
+```
+
+- Response :
+
+```json
+{
+  "code": "number",
+  "status": "string",
+  "data": {
+    "seatId": {
+      "studioName": "Character",
+      "seatNo": "Integer"
+    },
+    "status": "String"
+  }
 }
 ```
 
@@ -503,20 +630,86 @@ Request :
 - Response :
 
 ```json
-  [
-  {
-    "seatId": {
-      "studioName": "Character",
-      "seatNo": "Integer"
+{
+  "code": "number",
+  "status": "string",
+  "data": [
+    {
+      "seatId": {
+        "studioName": "Character",
+        "seatNo": "Integer"
+      },
+      "status": "String"
     },
-    "status": "String"
-  },
-  {
-    "seatId": {
-      "studioName": "Character",
-      "seatNo": "Integer"
-    },
-    "status": "String"
+    {
+      "seatId": {
+        "studioName": "Character",
+        "seatNo": "Integer"
+      },
+      "status": "String"
+    }
+  ]
+}
+```
+### Delete Seats
+
+Request :
+
+- Method : DELETE
+- EndPoint : `/seats/delete`
+- Header :
+  - Content-Type : application/json
+  - Accept : application/json
+- Body :
+
+```json
+{
+  "seatId": {
+    "studioName": "Character",
+    "seatNo": "Integer"
   }
-]
+}
+```
+
+- Response :
+
+```json
+{
+  "code": "number",
+  "status": "string"
+}
+```
+
+
+
+
+
+## Invoice
+
+### Get Invoice
+
+Request :
+
+- Method : POST
+- EndPoint : `/invoice/getInvoice`
+- Header :
+  - Content-Type : application/json
+  - Accept : application/json
+- Body :
+
+```json
+{
+  "idUser": "Integer, unique",
+  "idFilm": "Integer, unique",
+  "showDate": "2022-11-25",
+  "startingHour": "12.00",
+  "studioName": "Character, unique",
+  "seatNo": "Integer, unique"
+}
+```
+- Response :
+
+```
+   Invoice Pdf
+   Seat Status set to "ordered"
 ```

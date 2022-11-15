@@ -1,7 +1,7 @@
 package com.binar.challenge5.service.Interface;
 
 import com.binar.challenge5.entities.Films;
-import com.binar.challenge5.model.request.FilmRequest;
+import com.binar.challenge5.model.request.FilmUpdateRequest;
 import com.binar.challenge5.model.response.FilmScheduleResponse;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +15,7 @@ public interface FilmService {
 
     Films save(Films films);
 
-    Films updateFilm(FilmRequest filmRequest) throws Exception;
+    FilmUpdateRequest updateFilm(FilmUpdateRequest filmUpdateRequest) throws Exception;
 
     void deleteById(int idFilm);
 

@@ -1,6 +1,5 @@
 package com.binar.challenge5.model.request;
 
-import com.binar.challenge5.entities.Films;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,7 +10,13 @@ import org.springframework.lang.NonNull;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class FilmRequest {
+public class FilmUpdateRequest {
     @NonNull
-    private Films films;
+    private Integer idFilm;
+    @NonNull
+    private String filmCode;
+    @NonNull
+    private String filmName;
+    @NonNull
+    private String isShow;
 }
