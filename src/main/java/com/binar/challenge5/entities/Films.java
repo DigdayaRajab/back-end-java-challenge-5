@@ -18,7 +18,9 @@ public class Films {
 
     @Column
     private String filmCode;
+    @Column(nullable = false)
     private String filmName;
+    @Column(nullable = false)
     private String isShow;
 
     @OneToMany(targetEntity = Schedules.class, cascade = CascadeType.ALL)

@@ -14,10 +14,13 @@ public class Schedules {
     @Column(name = "id_schedule", nullable = false)
     private Integer idSchedule;
 
-    @Column
+    @Column(nullable = false)
     private String showDate;
+    @Column(nullable = false)
     private String startingHour;
+    @Column(nullable = false)
     private String endingHour;
+    @Column(nullable = false)
     private String ticketPrice;
 
 //    @ManyToOne

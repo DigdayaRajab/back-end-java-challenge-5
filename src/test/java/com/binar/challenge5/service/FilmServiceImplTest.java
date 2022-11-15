@@ -16,10 +16,10 @@ class FilmServiceImplTest {
     void newFilm(){
         Films film = new Films();
 
-        film.setFilmCode(1011L);
-        film.setFilmName("Jumanji");
-        film.setIsShow("true");
-        film.setState(true);
+//        film.setFilmCode(1011L);
+//        film.setFilmName("Jumanji");
+//        film.setIsShow("true");
+//        film.setState(true);
 
         try {
             filmsService.newFilm(film);

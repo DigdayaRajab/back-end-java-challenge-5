@@ -59,7 +59,7 @@ public class FilmController {
     public CommonResponse<ResponseEntity> findAllFilms(){
         try {
         List<Films> response =  filmService.findAll();
-            return commonResponseGenerator.successResponse(new ResponseEntity(response, HttpStatus.OK).getBody(), "Success Add Data");
+            return commonResponseGenerator.successResponse(new ResponseEntity(response, HttpStatus.OK).getBody(), "Success");
         } catch (Exception e) {
             return commonResponseGenerator.failedResponse(new ResponseEntity("", HttpStatus.NO_CONTENT), e.getMessage());
 
@@ -70,7 +70,7 @@ public class FilmController {
     public CommonResponse<ResponseEntity> findFilmsShow(){
         try {
         List<Films> response =  filmService.findFilmsShow();
-            return commonResponseGenerator.successResponse(new ResponseEntity(response, HttpStatus.OK).getBody(), "Success Add Data");
+            return commonResponseGenerator.successResponse(new ResponseEntity(response, HttpStatus.OK).getBody(), "Success");
         } catch (Exception e) {
             return commonResponseGenerator.failedResponse(new ResponseEntity("", HttpStatus.NO_CONTENT), e.getMessage());
 
@@ -81,7 +81,7 @@ public class FilmController {
     public CommonResponse<ResponseEntity> findFilmsScheduleByName(@RequestParam("film_name") String filmName){
         try {
         List<FilmScheduleResponse> response = filmService.findFilmsScheduleByName(filmName);
-            return commonResponseGenerator.successResponse(new ResponseEntity(response, HttpStatus.OK).getBody(), "Success Add Data");
+            return commonResponseGenerator.successResponse(new ResponseEntity(response, HttpStatus.OK).getBody(), "Success");
         } catch (Exception e) {
             return commonResponseGenerator.failedResponse(new ResponseEntity("", HttpStatus.NO_CONTENT), e.getMessage());
         }

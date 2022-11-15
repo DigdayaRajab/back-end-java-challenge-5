@@ -9,7 +9,6 @@
     <field name="userName" class="java.lang.String"/>
     <field name="filmName" class="java.lang.String"/>
     <field name="seatStudioName" class="java.lang.String"/>
-    <field name="seatNo" class="java.lang.String"/>
     <field name="scheduleStart" class="java.lang.String"/>
     <field name="schedulePrice" class="java.lang.String"/>
     <field name="scheduleDate" class="java.lang.String"/>
@@ -18,164 +17,175 @@
         <band splitType="Stretch"/>
     </background>
     <title>
-        <band height="111" splitType="Stretch">
-            <staticText>
-                <reportElement x="480" y="50" width="70" height="30" uuid="11686d0a-fe47-40a4-8a14-58ffea1c20cd"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle">
-                    <font size="16" isBold="true"/>
-                </textElement>
-                <text><![CDATA[Invoice]]></text>
-            </staticText>
+        <band height="116" splitType="Stretch">
             <image>
-                <reportElement x="0" y="0" width="80" height="80" uuid="18f3fe9b-adfc-4f83-8134-b595de92e75e"/>
-<!--                <imageExpression><![CDATA["D:\VisualStudioCode\Android\jetpack pro\sub 1\app_logo.png"]]></imageExpression>-->
+                <reportElement x="10" y="10" width="60" height="60" uuid="18f3fe9b-adfc-4f83-8134-b595de92e75e"/>
+                <imageExpression><![CDATA["images/app_logo.png"]]></imageExpression>
             </image>
             <staticText>
-                <reportElement x="133" y="6" width="292" height="68" uuid="d5668730-3c7a-45c9-95ae-686c7a77b5e7"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle">
-                    <font fontName="Futura Md BT" size="30" isBold="true"/>
+                <reportElement x="144" y="10" width="292" height="68" uuid="d5668730-3c7a-45c9-95ae-686c7a77b5e7"/>
+                <textElement textAlignment="Center" verticalAlignment="Top">
+                    <font fontName="Arial" size="32" isBold="true" />
                 </textElement>
                 <text><![CDATA[Mas Gun Bioskop]]></text>
             </staticText>
             <frame>
-                <reportElement mode="Opaque" x="0" y="91" width="550" height="20" forecolor="#242424" backcolor="#2B2B2B" uuid="24be2290-0df4-4ee0-b8ae-0b98eaa8d44f"/>
+                <reportElement mode="Opaque" x="0" y="87" width="550" height="24" forecolor="#242424" backcolor="#2B2B2B" uuid="24be2290-0df4-4ee0-b8ae-0b98eaa8d44f"/>
                 <staticText>
-                    <reportElement x="10" y="0" width="100" height="20" forecolor="#FFFFFF" uuid="39a03b0c-a279-43d4-ba31-ca53326db902"/>
-                    <textElement textAlignment="Left" verticalAlignment="Middle">
-                        <font isBold="true"/>
+                    <reportElement x="479" y="-3" width="70" height="30" forecolor="#FFFFFF" uuid="11686d0a-fe47-40a4-8a14-58ffea1c20cd"/>
+                    <textElement textAlignment="Center" verticalAlignment="Middle">
+                        <font fontName="SansSerif" size="16" isBold="false"/>
                     </textElement>
-                    <text><![CDATA[Ticket Bioskop]]></text>
+                    <text><![CDATA[Invoice]]></text>
                 </staticText>
             </frame>
+            <staticText>
+                <reportElement x="144" y="42" width="292" height="50" uuid="30960aa0-8399-4c46-84c1-53c70e99b0fe"/>
+                <textElement textAlignment="Center" verticalAlignment="Top">
+                    <font size="18" isBold="false" pdfFontName="Helvetica-Oblique" isPdfEmbedded="true"/>
+
+                </textElement>
+                <text><![CDATA[Showtimes of all Theaters]]></text>
+            </staticText>
         </band>
     </title>
     <pageHeader>
-        <band height="10" splitType="Stretch"/>
+        <band height="1" splitType="Stretch"/>
     </pageHeader>
     <columnHeader>
-        <band height="44" splitType="Stretch"/>
+        <band height="6" splitType="Stretch"/>
     </columnHeader>
     <detail>
-        <band height="234" splitType="Stretch">
+        <band height="270" splitType="Stretch">
             <textField>
-                <reportElement x="360" y="60" width="100" height="30" uuid="b8610ffa-2e9b-4530-b65c-1527e7bf9712"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle">
+                <reportElement x="340" y="40" width="100" height="30" uuid="b8610ffa-2e9b-4530-b65c-1527e7bf9712"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
                     <font size="12"/>
                 </textElement>
                 <textFieldExpression><![CDATA[$F{scheduleDate}]]></textFieldExpression>
             </textField>
             <staticText>
-                <reportElement x="264" y="60" width="100" height="30" uuid="0b070935-6061-4010-a9a8-90c3a275f2e9"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <reportElement x="240" y="40" width="100" height="30" uuid="0b070935-6061-4010-a9a8-90c3a275f2e9"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="12" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+                </textElement>
                 <text><![CDATA[DATE]]></text>
             </staticText>
             <staticText>
-                <reportElement x="264" y="90" width="100" height="30" uuid="9f4579b0-41a9-482e-b138-365f52b70fc0"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <reportElement x="240" y="73" width="100" height="30" uuid="9f4579b0-41a9-482e-b138-365f52b70fc0"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="12" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+                </textElement>
                 <text><![CDATA[TIME]]></text>
             </staticText>
             <textField>
-                <reportElement x="360" y="90" width="100" height="30" uuid="620ea75f-6fd8-4493-8f3d-07784abf0a42"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle">
+                <reportElement x="340" y="73" width="100" height="30" uuid="620ea75f-6fd8-4493-8f3d-07784abf0a42"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
                     <font size="12"/>
                 </textElement>
                 <textFieldExpression><![CDATA[$F{scheduleStart}]]></textFieldExpression>
             </textField>
             <staticText>
-                <reportElement x="264" y="158" width="100" height="30" uuid="2c8d32a1-5d53-4052-a49e-8f844741a482"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <reportElement x="240" y="138" width="100" height="30" uuid="2c8d32a1-5d53-4052-a49e-8f844741a482"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="12" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+                </textElement>
                 <text><![CDATA[PRICE]]></text>
             </staticText>
             <textField>
-                <reportElement x="360" y="158" width="100" height="30" uuid="73853b1a-a6cb-47ff-96e3-4d8357125d07"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle">
+                <reportElement x="340" y="138" width="100" height="30" uuid="73853b1a-a6cb-47ff-96e3-4d8357125d07"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
                     <font size="12"/>
                 </textElement>
                 <textFieldExpression><![CDATA[$F{schedulePrice}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="264" y="195" width="200" height="30" uuid="36b495d7-f075-4b33-91e0-1947f0ae3c97"/>
+                <reportElement x="240" y="180" width="266" height="30" uuid="36b495d7-f075-4b33-91e0-1947f0ae3c97"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle">
-                    <font size="12"/>
+                    <font size="12" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
                 </textElement>
                 <textFieldExpression><![CDATA[$F{TicketId}]]></textFieldExpression>
             </textField>
             <staticText>
-                <reportElement x="10" y="69" width="70" height="30" uuid="fb47fa7b-d2a9-402e-9585-f73b48286cf5"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <reportElement x="10" y="41" width="70" height="30" uuid="fb47fa7b-d2a9-402e-9585-f73b48286cf5"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="12" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+                </textElement>
                 <text><![CDATA[NAME]]></text>
             </staticText>
             <textField>
-                <reportElement x="80" y="69" width="125" height="30" uuid="d81ba0fe-ecd8-4bbd-ac1c-298ac3ad6ac4"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle">
+                <reportElement x="80" y="41" width="125" height="30" uuid="d81ba0fe-ecd8-4bbd-ac1c-298ac3ad6ac4"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
                     <font size="12"/>
-                </textElement>
+                    </textElement>
                 <textFieldExpression><![CDATA[$F{userName}]]></textFieldExpression>
             </textField>
-            <line>
-                <reportElement x="230" y="61" width="1" height="165" uuid="d963e3f3-e911-48c6-bfbc-dff390ff1779"/>
-            </line>
             <staticText>
-                <reportElement x="10" y="109" width="70" height="30" uuid="1404f1a9-3da8-4956-8e64-64412a013cc6"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <reportElement x="10" y="73" width="70" height="30" uuid="1404f1a9-3da8-4956-8e64-64412a013cc6"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="12" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+                </textElement>
                 <text><![CDATA[EMAIL]]></text>
             </staticText>
             <textField>
-                <reportElement x="80" y="109" width="125" height="30" uuid="2cec771e-742d-4ca5-9537-e3f2e4b67073"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle">
+                <reportElement x="80" y="73" width="125" height="30" uuid="2cec771e-742d-4ca5-9537-e3f2e4b67073"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
                     <font size="12"/>
                 </textElement>
                 <textFieldExpression><![CDATA[$F{userEmail}]]></textFieldExpression>
             </textField>
             <staticText>
-                <reportElement x="264" y="128" width="100" height="30" uuid="0081db31-35f4-46fe-9095-df3d81381f0f"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <reportElement x="240" y="106" width="100" height="30" uuid="0081db31-35f4-46fe-9095-df3d81381f0f"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="12" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+                </textElement>
                 <text><![CDATA[ROW]]></text>
             </staticText>
             <textField>
-                <reportElement x="360" y="128" width="46" height="30" uuid="05fda791-6231-446a-bb2b-d352f70c6caf"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle">
+                <reportElement x="340" y="108" width="46" height="30" uuid="05fda791-6231-446a-bb2b-d352f70c6caf"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
                     <font size="12"/>
                 </textElement>
                 <textFieldExpression><![CDATA[$F{seatStudioName}]]></textFieldExpression>
             </textField>
             <staticText>
-                <reportElement x="416" y="128" width="68" height="30" uuid="d354cae4-efda-4a6e-851d-0069e6718b48"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <reportElement x="390" y="108" width="68" height="30" uuid="d354cae4-efda-4a6e-851d-0069e6718b48"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="12" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+                </textElement>
                 <text><![CDATA[SEAT]]></text>
             </staticText>
             <textField>
-                <reportElement x="484" y="128" width="46" height="30" uuid="e35cb286-4447-408b-a2e1-a7cd19766250"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle">
+                <reportElement x="460" y="108" width="46" height="30" uuid="e35cb286-4447-408b-a2e1-a7cd19766250"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
                     <font size="12"/>
                 </textElement>
-                <textFieldExpression><![CDATA[$F{seatNo}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{seatNomor}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="41" y="6" width="379" height="30" uuid="584c5c3a-b3a0-417f-8b68-99a731c165a4"/>
+                <reportElement x="0" y="0" width="550" height="30" uuid="584c5c3a-b3a0-417f-8b68-99a731c165a4"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle">
-                    <font size="14"/>
+                    <font size="18" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
                 </textElement>
                 <textFieldExpression><![CDATA[$F{filmName}]]></textFieldExpression>
             </textField>
+            <frame>
+                <reportElement mode="Opaque" x="0" y="230" width="550" height="20" forecolor="#242424" backcolor="#2B2B2B" uuid="c37e2466-415e-4794-8bd3-0a4984683277"/>
+            </frame>
+            <frame>
+                <reportElement mode="Opaque" x="220" y="41" width="2" height="160" forecolor="#242424" backcolor="#2B2B2B" uuid="d6c4243f-3523-4671-8145-34b7676704bf">
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                </reportElement>
+            </frame>
         </band>
     </detail>
     <columnFooter>
         <band height="28" splitType="Stretch"/>
     </columnFooter>
     <pageFooter>
-        <band height="43" splitType="Stretch">
-            <frame>
-                <reportElement mode="Opaque" x="0" y="13" width="550" height="20" forecolor="#242424" backcolor="#2B2B2B" uuid="c37e2466-415e-4794-8bd3-0a4984683277"/>
-                <staticText>
-                    <reportElement x="229" y="0" width="100" height="20" forecolor="#FFFFFF" uuid="749ec944-cb4e-4e8e-9266-58caa7e070d5"/>
-                    <textElement textAlignment="Center" verticalAlignment="Middle">
-                        <font isBold="true"/>
-                    </textElement>
-                    <text><![CDATA[.]]></text>
-                </staticText>
-            </frame>
-        </band>
+        <band height="43" splitType="Stretch"/>
     </pageFooter>
     <summary>
         <band height="42" splitType="Stretch"/>

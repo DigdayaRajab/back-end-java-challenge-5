@@ -56,13 +56,13 @@ public class InvoiceServiceImpl implements InvoiceService {
             }
 
             if(filmScheduleRes.getFilmName() == null) {
-                throw new Exception("Data tidak ditemukan");
+                throw new Exception("Data Film tidak ditemukan");
             }
             data.put("userEmail", users.getEmail());
             data.put("userName", users.getUsername());
             data.put("filmName", filmScheduleRes.getFilmName());
             data.put("seatStudioName", String.valueOf(invoiceRequest.getStudioName()));
-            data.put("seatNo", String.valueOf(invoiceRequest.getSeatNo()));
+            data.put("seatNomor", String.valueOf(invoiceRequest.getSeatNo()));
             data.put("scheduleStart", filmScheduleRes.getStartingHour());
             data.put("schedulePrice", filmScheduleRes.getTicketPrice());
             data.put("scheduleDate", filmScheduleRes.getShowDate());

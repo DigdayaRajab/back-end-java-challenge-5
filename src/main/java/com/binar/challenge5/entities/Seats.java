@@ -12,6 +12,7 @@ import javax.persistence.*;
 public class Seats {
     @EmbeddedId
     private SeatsId seatId;
+    @Column(nullable = false)
     private String status;
 
 }

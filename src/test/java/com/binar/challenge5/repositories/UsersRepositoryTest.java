@@ -1,7 +1,6 @@
 package com.binar.challenge5.repositories;
 
 import com.binar.challenge5.entities.Users;
-import com.binar.challenge5.model.response.UsersResponse;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -48,10 +47,10 @@ class UsersRepositoryTest {
 
     @Test
     void testGetAllUsers() {
-        List<UsersResponse> usersList0 = usersRepository.findAllUsers();
-        usersList0.forEach(usr -> {
-            System.out.println(usr.getUsername());
-        });
+//        List<UsersResponse> usersList0 = usersRepository.findAllUsers();
+//        usersList0.forEach(usr -> {
+//            System.out.println(usr.getUsername());
+//        });
     }
 
     @Test
