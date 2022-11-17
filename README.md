@@ -3,6 +3,7 @@
 - User
 - Film
 - Seat
+- Schedule
 - Invoice
 
 ## User
@@ -679,6 +680,167 @@ Request :
   "status": "string"
 }
 ```
+
+
+
+
+
+
+
+
+
+## Schedules
+
+### Create Schedules
+
+Request :
+
+- Method : POST
+- EndPoint : `/schedules/add`
+- Header :
+  - Content-Type : application/json
+  - Accept : application/json
+- Body :
+
+```json
+{
+  "showDate": "2022-12-22",
+  "startingHour": "22.00",
+  "endingHour": "23.00",
+  "ticketPrice": "22222",
+  "codeFilm": "Integer, Unique"
+}
+```
+
+- Response :
+
+```json
+{
+  "status": "Integer",
+  "message": "String",
+  "data": {
+    "idSchedule": "Integer, Unique",
+    "showDate": "2022-12-22",
+    "startingHour": "22.00",
+    "endingHour": "23.00",
+    "ticketPrice": "22222",
+    "fsFk": "Integer, Unique"
+  }
+}
+```
+
+### Update Schedules
+
+Request :
+
+- Method : PUT
+- EndPoint : `/schedules/update`
+- Header :
+  - Content-Type : application/json
+  - Accept : application/json
+- Body :
+
+```json
+{
+  "idSchedule": "Integer, Unique",
+  "showDate": "2022-12-22",
+  "startingHour": "22.00",
+  "endingHour": "23.00",
+  "ticketPrice": "22222",
+  "codeFilm": "Integer, Unique"
+}
+```
+
+- Response :
+
+```json
+{
+  "status": "Integer",
+  "message": "String",
+  "data": {
+    "idSchedule": "Integer, Unique",
+    "showDate": "2022-12-22",
+    "startingHour": "22.00",
+    "endingHour": "23.00",
+    "ticketPrice": "22222",
+    "fsFk": "Integer, Unique"
+  }
+}
+```
+
+### Delete Schedules
+
+Request :
+
+- Method : DELETE
+- EndPoint : `/schedules/delete?{id}`
+- Header :
+  - Accept : application/json
+- Response :
+```json
+{
+  "code": "number",
+  "status": "string"
+}
+```
+
+### List Schedules
+
+Request :
+
+- Method : GET
+- EndPoint : `/schedules/getAllSchedules`
+- Header :
+  - Accept : application/json
+- Response :
+
+```json
+{
+  "status": "Integer",
+  "message": "String",
+  "data": [{
+    "idSchedule": "Integer, Unique",
+    "showDate": "2022-12-22",
+    "startingHour": "22.00",
+    "endingHour": "23.00",
+    "ticketPrice": "22222",
+    "fsFk": "Integer, Unique"
+  },{
+    "idSchedule": "Integer, Unique",
+    "showDate": "2022-12-22",
+    "startingHour": "22.00",
+    "endingHour": "23.00",
+    "ticketPrice": "22222",
+    "fsFk": "Integer, Unique"
+  }]
+}
+```
+
+### Get Schedules by FilmId
+
+Request :
+
+- Method : GET
+- EndPoint : `/schedules/getSchedulesByFilmId?{id}`
+- Header :
+  - Accept : application/json
+- Response :
+
+```json
+{
+  "status": "Integer",
+  "message": "String",
+  "data": {
+    "idSchedule": "Integer, Unique",
+    "showDate": "2022-12-22",
+    "startingHour": "22.00",
+    "endingHour": "23.00",
+    "ticketPrice": "22222",
+    "fsFk": "Integer, Unique"
+  }
+}
+```
+
 
 
 

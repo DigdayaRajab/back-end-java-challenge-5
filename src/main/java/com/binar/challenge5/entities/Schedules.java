@@ -23,6 +23,8 @@ public class Schedules {
     @Column(nullable = false)
     private String ticketPrice;
 
+    @Column(name = "fs_fk")
+    private Integer fs_fk;
 //    @ManyToOne
 //    private Films film;
 }
