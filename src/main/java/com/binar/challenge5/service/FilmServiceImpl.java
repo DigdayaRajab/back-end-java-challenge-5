@@ -40,15 +40,23 @@ public class FilmServiceImpl implements FilmService {
         }
 
         try {
-            return filmRepository.update(
+            filmRepository.update(
                     filmUpdateRequest.getFilmCode(),
                     filmUpdateRequest.getFilmName(),
                     filmUpdateRequest.getIsShow(),
                     filmUpdateRequest.getIdFilm());
-        } catch (Exception e) {
-            e.getMessage();
+        }catch (Exception e)
+        {
+            throw new Exception(e.getMessage());
         }
-        return filmUpdateRequest;
+
+        FilmUpdateRequest newFilm = new FilmUpdateRequest();
+        newFilm.setIdFilm(film.getIdFilm());
+        newFilm.setFilmCode(film.getFilmCode());
+        newFilm.setFilmName(film.getFilmName());
+        newFilm.setIsShow(film.getIsShow());
+
+        return newFilm;
     }
 
     @Override
